@@ -1,0 +1,50 @@
+Source: libressl
+Section: utils
+Priority: optional
+Maintainer: William Johansson <radar@radhuset.org>
+Build-Depends: debhelper (>= 9), autotools-dev
+Standards-Version: 3.9.5
+Homepage: http://www.libressl.org
+Vcs-Git: git://github.com/radhus/debian-libressl.git
+Vcs-Browser: https://github.com/radhus/debian-libressl.git
+
+Package: libressl-utils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: openssl
+Description: LibreSSL - cryptographic utility
+ This package provides the LibreSSL utility binaries,
+ similar to the openssl package.
+ .
+ It cannot be installed at the same time as the OpenSSL
+ utils package openssl.
+
+Package: libressl-doc
+Architecture: all
+Description: documentation for libressl
+ Documentation for LibreSSL.
+
+Package: libressl2.3
+Section: libs
+Priority: important
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: LibreSSL 2.3 - shared libraries
+ This package provides the LibreSSL shared libraries for the 2.3 version,
+ similar to the libssl1.x.x package.
+
+Package: libressl-dev
+Section: libdevel
+Priority: optional
+Architecture: any
+Multi-Arch: same
+Depends: libressl2.3 (= ${binary:Version}), zlib1g-dev, ${misc:Depends}
+Conflicts: libssl-dev
+Description: LibreSSL - development files
+ This package provides the LibreSSL development libraries, header files,
+ similar to the libssl-dev package.
+ .
+ It cannot be installed at the same time as OpenSSL development package
+ libssl-dev.

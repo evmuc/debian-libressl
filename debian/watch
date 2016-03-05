@@ -1,0 +1,2 @@
+version=3
+opts=pgpsigurlmangle=s/$/.asc/ http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-(\d+\.\d+\.\d+)\.tar\.gz
