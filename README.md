@@ -1,5 +1,7 @@
 # Debian package for [LibreSSL](http://www.libressl.org)
 
+[![Build Status](https://travis-ci.org/radhus/debian-libressl.svg?branch=jessie)](https://travis-ci.org/radhus/debian-libressl)
+
 This repository provides the LibreSSL alternative to OpenSSL packaged for Debian.
 
 ## Packages
