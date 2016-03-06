@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+DIST=jessie
+export DIST
+
+cd package
+
+# Install dependencies
+# Assume Travis Ubuntu 14.04 VM
+sudo apt-get update
+sudo apt-get install -y pbuilder debootstrap devscripts debian-archive-keyring
+
+# Create pbuilder environment
+sudo pbuilder create --distribution $DIST --mirror http://httpredir.debian.org/debian --debootstrapopts "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg"
+
+# Download the sources
+uscan --download --download-current-version --force-download --verbose
+
+# Extract the sources (should maybe use git-buildpackage really...)
+tar xvzf ../libressl-*.tar.gz --strip-components=1
+# Make sure it didn't overwrite our stuff
+git reset --hard
+git clean -fd -- debian
+
+# Build with pdebuild
+sudo pdebuild --use-pdebuild-internal
