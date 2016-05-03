@@ -1,3 +1,9 @@
+libressl (2.3.4-1) jessie; urgency=medium
+
+  * New upstream version
+
+ -- William Johansson <radar@radhuset.org>  Tue, 03 May 2016 21:15:37 +0200
+
 libressl (2.3.3-1) jessie; urgency=medium
 
   * New upstream version
